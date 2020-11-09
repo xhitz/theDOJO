@@ -2,7 +2,7 @@
 
 ## Directory Structure & Important Files
 
->root
+```root
 : build
 :: contracts
 ::: MainIII6.json
@@ -32,5 +32,6 @@
 
 : .env
 : .gitignore
+```
 
 # Dependencies
