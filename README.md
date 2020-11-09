@@ -31,4 +31,6 @@
 : webpack.config.js
 
 : .env
-: .gitignore```
+: .gitignore ```
+
+# Dependencies
