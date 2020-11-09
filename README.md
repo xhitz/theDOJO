@@ -1,5 +1,7 @@
 # theDOJO
 
+## Installation 
+
 ## Directory Structure & Important Files
 
 ```root
@@ -34,4 +36,4 @@
 : .gitignore
 ```
 
-# Dependencies
+## Dependencies
