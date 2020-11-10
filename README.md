@@ -2,6 +2,8 @@
 
 ## Installation 
 
+> ```git clone https://github.com/stereoIII6/theDOJO.git ROOT_DIR```
+
 ## Directory Structure & Important Files
 
 ```root
