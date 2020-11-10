@@ -2,9 +2,9 @@
 
 ## Installation 
 
-> ```mkdir ROOT_DIR``` 
-```cd ROOT_DIR```
-```git clone https://github.com/stereoIII6/theDOJO.git ROOT_DIR```
+> Create a directory ```mkdir ROOT_DIR``` navigate into it 
+```cd ROOT_DIR``` clone the repo into the directory 
+```git clone https://github.com/stereoIII6/theDOJO.git .```
 
 ## Directory Structure & Important Files
 
