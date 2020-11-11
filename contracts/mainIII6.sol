@@ -97,10 +97,6 @@ contract MainIII6 {
         require(isUser[msg.sender]);
         _;
     }
-    modifier onlyNew() {
-        require(!isUser[msg.sender]);
-        _;
-    }
     modifier readyDel() {
         require(users[userCount[msg.sender]].role == 0);
         _;
@@ -139,7 +135,7 @@ contract MainIII6 {
         string calldata _mobile,
         bool _adv,
         bool _pub
-    ) external onlyNew() returns (bool) {
+    ) external returns (bool) {
         uint256 rl;
         if (_pub) rl += 11;
         if (_adv) rl += 22;
