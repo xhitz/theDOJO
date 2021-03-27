@@ -2,11 +2,18 @@
 
 ## Installation 
 
+> Install Truffle  ```npm i -g truffle```
+
 > Create a directory ```mkdir ROOT_DIR``` 
 
 > navigate into it ```cd ROOT_DIR``` 
 
 >clone the repo into the directory ```git clone https://github.com/stereoIII6/theDOJO.git .```
+
+> Install Repo Dependencys and Node Modules ```npm i```
+
+> Run local environment ```npm run dev```
+
 
 ## Directory Structure & Important Files
 
