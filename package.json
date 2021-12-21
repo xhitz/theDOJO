@@ -8,22 +8,28 @@
   },
   "scripts": {
     "start": "static-server client",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "migrate:dev": "npx truffle migrate --network develop",
+    "migrate:mumbai": "npx truffle migrate --network mumbai",
+    "migrate:polygon": "npx truffle migrate --network polygon"
   },
   "keywords": [],
   "author": "stereoIII6",
   "license": "MIT",
   "dependencies": {
-    "@openzeppelin/contracts": "^3.2.1-solc-0.7",
+    "@metamask/detect-provider": "^1.2.0",
+    "@openzeppelin/contracts": "^3.4.2",
     "@openzeppelin/test-helpers": "^0.5.9",
+    "@truffle/hdwallet-provider": "^2.0.0",
     "bignumber": "^1.1.0",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "mocha": "^8.2.1",
+    "static-server": "^2.2.1",
     "underscore": "^1.11.0"
   },
   "devDependencies": {
-    "web3": "^1.3.0",
-    "webpack": "^4.32.2",
+    "web3": "^1.6.1",
+    "webpack": "^4.46.0",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1"
   }

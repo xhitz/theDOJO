@@ -7,182 +7,78 @@
 //                                      //
 //////////////////////////////////////////
 
-//////////////////////////////////////////
-//                                      //
-//          IMPORTS                     //
-//                                      //
-//////////////////////////////////////////
 import Web3 from 'web3';
-import MainIII6 from '../build/contracts/MainIII6.json';
+import detectEthereumProvider from "@metamask/detect-provider";
+
 //////////////////////////////////////////
 //                                      //
-//          GLOBALS                     //
-//                                      //
-//////////////////////////////////////////
-let web3;
-let mainIII6;
-//////////////////////////////////////////
-//                                      //
-//          Web3 Init                   //
+//          Init Metamask               //
 //                                      //
 //////////////////////////////////////////
 
-const initWeb3 = () => {
-    return new Promise((resolve, reject) => {
-        if (typeof window.ethereum !== 'undefined') {
-            const web3 = new Web3(window.ethereum);
-            window.ethereum.enable()
-                .then(() => {
-                    resolve(
-                        new Web3(window.ethereum)
-                    );
-                })
-                .catch(e => {
-                    reject(e);
-                });
-            return;
+const initialize = () => {
+    //Basic Actions Section
+    const onboardButton = document.getElementById('connectButton');
+    const networkButton = document.getElementById('networkButton');
+    const walletButton = document.getElementById('walletButton');
+    const iii6 = document.getElementById('iii6');
+    const isMetaMaskInstalled = () => {
+        //Have to check the ethereum binding on the window object to see if it's installed
+        const { ethereum } = window;
+        return Boolean(ethereum && ethereum.isMetaMask);
+    };
+    const clickInstall = () => {
+        alert("You are being redirected to the official download of Metamask.io ... Please Follow their installation instructions.");
+        window.open("https://metamask.io");
+    };
+    const onClickConnect = async () => {
+        try {
+          // Will open the MetaMask UI
+          onboardButton.innerHTML = 'Connecting ...';
+          // You should disable this button while the request is pending!
+          await ethereum.request({ method: 'eth_requestAccounts' });
+          const accounts = await ethereum.request({ method: 'eth_accounts' });
+          const network = await ethereum.request({method: 'net_version'});
+          var networkTag = "Switch Network";
+        //We take the first address in the array of addresses and display it
+                            if(Number(network) === 80001) networkTag =  "Mumbai";
+                            if(Number(network) === 1) networkTag =  "ETH";
+                            if(Number(network) === 137) networkTag =  "Polygon";
+                            if(Number(network) === 100) networkTag =  "xDai";
+                            if(Number(network) === 10) networkTag =  "Optimism";
+                            if(Number(network) === 200) networkTag =  "Arbitrum";
+                            if(Number(network) === 43224) networkTag =  "Avalanche";
+                            if(Number(network) === 1312) networkTag = "ACAB";
+
+        networkButton.innerHTML = networkTag;
+        onboardButton.innerHTML = accounts[0].slice(0,5)+"..."+accounts[0].slice(38,42) || 'Connect';
+        } catch (error) {
+          console.error(error);
+          onboardButton.innerText = 'Connect';
         }
-        if (typeof window.web3 !== 'undefined') {
-            return resolve(
-                new Web3(window.web3.currentProvider)
-            );
+    };
+    const MetaMaskClientCheck = () => {
+        //Now we check to see if MetaMask is installed
+        if (!isMetaMaskInstalled()) {
+        //If it isn't installed we ask the user to click to install it
+        onboardButton.innerText = 'Click here to install MetaMask!';
+        onboardButton.addEventListener("click",clickInstall);
+        } else {
+        //If it is installed we change our button text
+        onboardButton.innerText = 'Connect';
+        onboardButton.addEventListener("click",onClickConnect);
         }
-        // resolve(new Web3('http://localhost:7545'));
-    });
-};
+    };
+    MetaMaskClientCheck();
+}
+
 //////////////////////////////////////////
 //                                      //
-//          Contract Init               //
+//          Connect Web3                //
 //                                      //
 //////////////////////////////////////////
-const initContract = () => {
-    const deploymentKey = Object.keys(MainIII6.networks)[0];
-    return new web3.eth.Contract(
-        MainIII6.abi,
-        MainIII6
-            .networks[deploymentKey]
-            .address
-    );
-};
-//////////////////////////////////////////
-//                                      //
-//          App Init                    //
-//                                      //
-//////////////////////////////////////////
-const initApp = () => {
 
-    // INCLUDE ELEMENTS 
-
-    const $userForm = document.getElementById('userForm');
-    const $nameInput = document.getElementById('nameInput');
-    const $pinInput = document.getElementById('pinInput');
-    const $emailInput = document.getElementById('emailInput');
-    const $mobileInput = document.getElementById('mobileInput');
-    const $pubInput = document.getElementById('pubInput');
-    const $advInput = document.getElementById('advInput');
-    const $admInput = document.getElementById('admInput');
-    const $account = document.getElementById('account');
-    let accounts = [];
-    let logged = false;
-
-
-
-
-    web3.eth.getAccounts() // DO SHOWME()
-        .then(_accounts => {
-            accounts = _accounts;
-            console.log(accounts);
-            return mainIII6.methods
-                .showNow(accounts[0])
-                .call();
-        })
-        .then(result => {
-            mainIII6.methods.amIuser(accounts[0]).call().then(logCheck => { // DO LOGCHECK
-                logged = logCheck;
-                console.log(logged);
-
-
-                if (logged) { // IF LOGGED IN
-
-                    $account.innerHTML = result[0] + "<br />" + result[1] + "<br />" + result[2] + "<br />" + result[4] + "<br />" + result[3];
-                    $nameInput.value = result[0];
-                    $emailInput.value = result[1];
-                    $mobileInput.value = result[5];
-                    if (result[4] > 11) $pubInput.checked = true;   // IF PUB
-                    else $pubInput.checked = false;
-                    if (result[4] > 22) $advInput.checked = true;   // IF ADV
-                    else $advInput.checked = false;
-                    if (result[4] > 55) {                           // IF ADMIN
-                        $userForm.classList = "visible";
-                        $admInput.checked = true;
-                        $admInput.classList = "visible";
-                    }
-                    else {                                          // IF ! ADMIN
-                        $userForm.classList = "visible";
-                        $admInput.checked = false;
-                        $admInput.classList = "invisible";
-                    }
-                }
-                else { // IF ! LOGGED IN
-                    $userForm.classList = "visible";
-                    $account.innerHTML = ""; $account.innerHTML = "Please Create an Account";
-                    $admInput.checked = false;
-                    $admInput.style.display = "none";
-                    $userForm.addEventListener('submit', (e) => {
-                        e.preventDefault();
-                        const data = e.target.elements;
-                        console.log(data, "create");
-                        mainIII6.methods
-                            .createAcc(e.target.elements[0].value, e.target.elements[1].value, e.target.elements[2].value, e.target.elements[3].value, e.target.elements[4].value, e.target.elements[5].value)
-                            .send({ from: accounts[0] })
-                            .then(result => {
-                                // console.log(result);
-                                return mainIII6.methods
-                                    .showNow(accounts[0])
-                                    .call();
-                            })
-                            .then(result => {
-                                $account.innerHTML = result[0] + "<br />" + result[1] + "<br />" + result[2] + "<br />" + result[4] + "<br />" + result[3];
-                            });
-                    });
-                }
-            });
-
-        });
-
-    $userForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const data = e.target.elements;
-        console.log(data, 'edit');
-        mainIII6.methods
-            .editMe(e.target.elements[0].value, e.target.elements[1].value, e.target.elements[2].value, e.target.elements[3].value, e.target.elements[4].value, e.target.elements[5].value)
-            .send({ from: accounts[0] })
-            .then(result => {
-                // console.log(result);
-                return mainIII6.methods
-                    .showMe(accounts[0])
-                    .call();
-            })
-            .then(result => {
-                $account.innerHTML = result[0] + "<br />" + result[1] + "<br />" + result[2] + "<br />" + result[4] + "<br />" + result[3];
-            });
-    });
-
-
-};
-//////////////////////////////////////////
-//                                      //
-//          Coonect Web3                //
-//                                      //
-//////////////////////////////////////////
 document.addEventListener('DOMContentLoaded', () => {
-    initWeb3()
-        .then(_web3 => {
-            web3 = _web3;
-            mainIII6 = initContract();
-            initApp();
-        })
-        .catch(e => {
-            console.log(e.message)
-        });
+    initialize();
+
 });

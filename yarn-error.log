@@ -1,0 +1,62 @@
+Arguments: 
+  /Users/jediswag/.nvm/versions/node/v17.2.0/bin/node /Users/jediswag/.nvm/versions/node/v17.2.0/bin/yarn migrate:mumbai
+
+PATH: 
+  /Users/jediswag/.nvm/versions/node/v17.2.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  17.2.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/jediswag/Documents/web3/goldmansucks/theDOJO/package.json: Unexpected token } in JSON at position 356
+      at JSON.parse (<anonymous>)
+      at /Users/jediswag/.nvm/versions/node/v17.2.0/lib/node_modules/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/Users/jediswag/.nvm/versions/node/v17.2.0/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /Users/jediswag/.nvm/versions/node/v17.2.0/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "affily_eth",
+    "version": "1.0.0",
+    "description": "",
+    "main": "truffle-config.js",
+    "directories": {
+      "test": "test"
+    },
+    "scripts": {
+      "start": "static-server client",
+      "dev": "webpack-dev-server",
+      "migrate:mumbai": "npx truffle migrate --network mumbai",
+      "migrate:polygon": "npx truffle migrate --network polygon",
+    },
+    "keywords": [],
+    "author": "stereoIII6",
+    "license": "MIT",
+    "dependencies": {
+      "@openzeppelin/contracts": "^3.2.1-solc-0.7",
+      "@openzeppelin/test-helpers": "^0.5.9",
+      "bignumber": "^1.1.0",
+      "dotenv": "^8.2.0",
+      "mocha": "^8.2.1",
+      "underscore": "^1.11.0"
+    },
+    "devDependencies": {
+      "web3": "^1.3.0",
+      "webpack": "^4.32.2",
+      "webpack-cli": "^3.3.2",
+      "webpack-dev-server": "^3.4.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
