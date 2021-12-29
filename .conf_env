@@ -1,0 +1,8 @@
+MNEMONIC=your twelve word seed phrase goes here with simple spaces
+ADMIN=0x0
+POLY_URL=https://polygon-mainnet.infura.io/v3/INFURACODE
+MUMB_URL=https://polygon-mumbai.infura.io/v3/INFURACODE
+ARBI_URL=https://arbitrum-mainnet.infura.io/v3/INFURACODE
+OPTI_URL=https://optimism-mainnet.infura.io/v3/INFURACODE
+MAIN_URL=https://mainnet.infura.io/v3/INFURACODE
+

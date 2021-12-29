@@ -9,6 +9,7 @@
 
 import Web3 from 'web3';
 import detectEthereumProvider from "@metamask/detect-provider";
+const s0xiety = require("../build/contracts/s0xiety.json");
 
 //////////////////////////////////////////
 //                                      //
@@ -71,6 +72,11 @@ const initialize = () => {
     };
     MetaMaskClientCheck();
 }
+const loadContracts = () => {
+    const s0xContract = new Web3.eth.Contract(abi,address);
+}
+const log = () => {};
+
 
 //////////////////////////////////////////
 //                                      //
@@ -80,5 +86,5 @@ const initialize = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     initialize();
-
+    loadContracts();
 });
