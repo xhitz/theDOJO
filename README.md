@@ -1,4 +1,4 @@
-![](./theDojo.html)
+![](./theDojo.svg)
 # theDOJO 
 
 > @title      : theDOJO v1
