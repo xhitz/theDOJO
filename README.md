@@ -12,6 +12,8 @@
 
 > Install Repo Dependencys and Node Modules ```npm i```
 
+> fix webpack4 issues ```export NODE_OPTIONS=--openssl-legacy-provider```
+
 > Run local environment ```npm run dev```
 
 
@@ -50,3 +52,13 @@
 ```
 
 ## Dependencies
+
+    @metamask/detect-provider
+    @openzeppelin/contracts
+    @openzeppelin/test-helpers
+    @truffle/hdwallet-provider
+    bignumber
+    dotenv
+    mocha
+    static-server
+    underscore
