@@ -14,7 +14,14 @@
 
 > fix webpack4 issues ```export NODE_OPTIONS=--openssl-legacy-provider```
 
-> Run local environment ```npm run dev```
+> Run project in local environment ```npm run dev```
+
+> Visit Your Website on -> ```http://localhost:8080```
+
+> If you edit the sourcecode your Server automatically updates the website on save
+
+
+
 
 
 ## Directory Structure & Important Files
