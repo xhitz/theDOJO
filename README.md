@@ -1,4 +1,4 @@
-![image](./theDojo.png)
+![image](./theDojoLogo.png)
 # theDOJO 
 
 > @title      : theDOJO v1
