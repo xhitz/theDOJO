@@ -1,5 +1,6 @@
 node_modules
 build
 build/contracts
+public/bundle.js
 .DS_Store
 .env
