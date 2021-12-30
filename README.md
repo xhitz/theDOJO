@@ -1,9 +1,12 @@
 # theDOJO 
 
-@author : stereoIII6
-@coAuthor: xnode
-@company : fractio incorporated
-@emails: aron@fractio.xyz, nmisner@fractio.xyz
+> @title      : theDOJO v1
+> author     : stereoIII6
+> @coAuthor   : xnode
+> @company    : fractio incorporated
+> @emails     : aron@fractio.xyz, nmisner@fractio.xyz
+> @about      : theDOJO is a vanilla truffe web3 scaffolding setup that allows an easy quick setup for defi projects and dapps. It uses the most basic setup but allow complex projects without overbloated npm libraries noone can keep up to date with all the modern features that other frameworks on npm deliver.
+> @devtech    : truffle, solidity, javascript, json, html, css 
 
 ## Installation 
 
@@ -48,7 +51,7 @@
 :: s0xiety.sol // smart contract
 
 : client // source code dir JS
-:: index.js // project Source JS
+:: index.js // project Source JS (CODE HERE)
 
 : migrations // blockchain migration dir
 :: 1_initial_migration.js // migration init
@@ -57,7 +60,7 @@
 : public // source dir HTML
 :: images
 ::: favicon.png // page favicon
-:: index.html // source code HTML
+:: index.html // source code HTML (CODE HERE)
 :: (bundle.js)
 
 : test // test dir
