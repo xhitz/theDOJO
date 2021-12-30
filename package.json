@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "start": "static-server client",
+    "start": "webpack-dev-server", 
     "dev": "webpack-dev-server",
     "migrate:dev": "npx truffle migrate --network develop",
     "migrate:mumbai": "npx truffle migrate --network mumbai",

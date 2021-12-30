@@ -25,6 +25,27 @@ module.exports = {
       timeoutBlocks: 200,
       skipDryRun: true,
     },
+    arbitrum: {
+      provider: () => new HDWalletProvider(mnemonic, process.env.ARBI_URL),
+      network_id: 200,
+      confirmations: 10,
+      timeoutBlocks: 200,
+      skipDryRun: true,
+    },
+    optimism: {
+      provider: () => new HDWalletProvider(mnemonic, process.env.OPTI_URL),
+      network_id: 10,
+      confirmations: 10,
+      timeoutBlocks: 200,
+      skipDryRun: true,
+    },
+    main: {
+      provider: () => new HDWalletProvider(mnemonic, process.env.MAIN_URL),
+      network_id: 1,
+      confirmations: 10,
+      timeoutBlocks: 200,
+      skipDryRun: true,
+    },
   },
 
   // Set default mocha options here, use special reporters etc
