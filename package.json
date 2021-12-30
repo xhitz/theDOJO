@@ -9,6 +9,7 @@
   "scripts": {
     "start": "webpack-dev-server", 
     "dev": "webpack-dev-server",
+    "build": "webpack --config webpack.prod.js",
     "migrate:dev": "npx truffle migrate --network develop",
     "migrate:mumbai": "npx truffle migrate --network mumbai",
     "migrate:polygon": "npx truffle migrate --network polygon"

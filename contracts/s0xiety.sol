@@ -85,13 +85,13 @@ contract s0xiety {
     mapping(address => uint256) public msgSent;
 
     struct User {
-        uint256 id;
-        uint256 cnt;
+        uint256 id; // id_val
+        uint256 cnt; // iteration val
         uint256 role; // 0 inactive, 1 noob, 2 profiler, 99 admin
-        address adr;
-        string name;
-        string email;
-        uint256 likes;
+        address adr;  // 0x0
+        string name; // user name
+        string email;  // user email
+        uint256 likes; // count iteration val
     }
     struct Profile {
         uint256 cnt;
