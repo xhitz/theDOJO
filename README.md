@@ -1,5 +1,7 @@
+# theDOJO v1.0 
+
 ![image](./theDojoLogo.png)
-# theDOJO 
+
 
 > @title      : theDOJO v1
 
