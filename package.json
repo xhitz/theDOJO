@@ -7,9 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "start": "webpack-dev-server", 
+    "start": "ebpack --config webpack.dev.js",
     "dev": "webpack-dev-server",
-    "build": "webpack --config webpack.prod.js",
+    "build": "ebpack --config webpack.prod.js",
     "migrate:dev": "npx truffle migrate --network develop",
     "migrate:mumbai": "npx truffle migrate --network mumbai",
     "migrate:polygon": "npx truffle migrate --network polygon"
@@ -32,6 +32,7 @@
     "web3": "^1.6.1",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "^3.4.1"
+    "webpack-dev-server": "^3.4.1",
+    "webpack-merge": "^5.8.0"
   }
 }
