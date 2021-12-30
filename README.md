@@ -1,4 +1,12 @@
 # theDOJO 
+> 
+>   .   '||              '||''|.    ..|''||      '||'  ..|''||   
+> .||.   || ..     ....   ||   ||  .|'    ||      ||  .|'    ||  
+>  ||    ||' ||  .|...||  ||    || ||      ||     ||  ||      || 
+>  ||    ||  ||  ||       ||    || '|.     ||     ||  '|.     || 
+>  '|.' .||. ||.  '|...' .||...|'   ''|...|'  || .|'   ''|...|'  
+>                                              '''               
+>                                                       
 
 > @title      : theDOJO v1
 
@@ -30,7 +38,11 @@
 
 ## Initialization
 
-> You will need to open ```.conf_env``` and edit the seedphrase, admin address, and the infura api codes and finally save the file as ```.env``` :: CAUTION : make sure not to leave sensitive data in any file but ```.env```. In production these values will have to be hidden server vars. Only use Mumbai Testnetwork until you know what you are doing. Be cautionate about which seedphrase and admin account you intend to use for which project to protect your funds. ::
+> You will need to open ```.conf_env``` and edit the seedphrase, admin address, and the infura api codes and 
+
+> finally save the file as ```.env``` 
+
+> :: CAUTION : make sure not to leave sensitive data in any file but ```.env```. In production these values will have to be hidden server vars. Only use Mumbai Testnetwork until you know what you are doing. Be cautionate about which seedphrase and admin account you intend to use for which project to protect your funds. ::
 
 > Then you will need to compile and migrate the contracts ```npm run migrate:<network>``` you can choose from main, polygon, mumbai, optimism & arbitrum to migrate the contracts onto the wanted chain/s.
 
