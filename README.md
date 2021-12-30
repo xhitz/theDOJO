@@ -1,11 +1,17 @@
 # theDOJO 
 
 > @title      : theDOJO v1
-> author     : stereoIII6
+
+> @author     : stereoIII6
+
 > @coAuthor   : xnode
+
 > @company    : fractio incorporated
+
 > @emails     : aron@fractio.xyz, nmisner@fractio.xyz
+
 > @about      : theDOJO is a vanilla truffe web3 scaffolding setup that allows an easy quick setup for defi projects and dapps. It uses the most basic setup but allow complex projects without overbloated npm libraries noone can keep up to date with all the modern features that other frameworks on npm deliver.
+
 > @devtech    : truffle, solidity, javascript, json, html, css 
 
 ## Installation 
