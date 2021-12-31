@@ -7,9 +7,10 @@
 //                                      //
 //////////////////////////////////////////
 
-import Web3 from 'web3';
+import { ethers } from "ethers";
 import detectEthereumProvider from "@metamask/detect-provider";
 const s0xiety = require("../build/contracts/s0xiety.json");
+const provider = new ethers.providers.Web3Provider(window.ethereum)
 
 //////////////////////////////////////////
 //                                      //
@@ -53,6 +54,7 @@ const initialize = () => {
 
         networkButton.innerHTML = networkTag;
         onboardButton.innerHTML = accounts[0].slice(0,5)+"..."+accounts[0].slice(38,42) || 'Connect';
+        log();
         } catch (error) {
           console.error(error);
           onboardButton.innerText = 'Connect';
@@ -72,10 +74,25 @@ const initialize = () => {
     };
     MetaMaskClientCheck();
 }
-const loadContracts = () => {
-    const s0xContract = new Web3.eth.Contract(abi,address);
+const s0xData = async () => {
+    
+    const deploymentKey = Object.keys(s0xiety.networks)[0];
+    // console.log(s0xiety.abi,provider);
+    return new ethers.Contract(
+            s0xiety
+            .networks[deploymentKey]
+            .address, s0xiety.abi, provider
+    );
 }
-const log = () => {};
+
+const log = async () => {
+    const accounts = await ethereum.request({ method: 'eth_accounts' });
+    const s0xDat = await s0xData();
+    console.log(s0xDat.functions);
+    const ProfileCount = s0xDat.functions.users(0);
+    console.log(ProfileCount);
+    return ProfileCount;
+};
 
 
 //////////////////////////////////////////
@@ -86,5 +103,5 @@ const log = () => {};
 
 document.addEventListener('DOMContentLoaded', () => {
     initialize();
-    loadContracts();
+    log();
 });

@@ -155,7 +155,7 @@ contract s0xiety {
                 cnt: u,
                 role: 99,
                 adr: admin,
-                name: "stereo",
+                name: "stereoIII6",
                 email: "type.stereo@pm.me",
                 likes: 10
             })
@@ -165,7 +165,9 @@ contract s0xiety {
         userNum[admin] = u;
         u = u + 1;
     }
-
+    function showMyName(address _adr) public view returns(uint256){
+        return userNum[_adr];
+    }
     function makeUser(
         uint256 _id,
         uint256 _cnt,
