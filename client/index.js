@@ -10,7 +10,8 @@
 import { ethers } from "ethers";
 import detectEthereumProvider from "@metamask/detect-provider";
 const s0xiety = require("../build/contracts/s0xiety.json");
-const provider = new ethers.providers.Web3Provider(window.ethereum)
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+const signer = provider.getSigner();
 
 //////////////////////////////////////////
 //                                      //
@@ -86,12 +87,15 @@ const s0xData = async () => {
 }
 
 const log = async () => {
-    const accounts = await ethereum.request({ method: 'eth_accounts' });
+    const myAddress = await signer.getAddress()
     const s0xDat = await s0xData();
-    console.log(s0xDat.functions);
-    const ProfileCount = s0xDat.functions.users(0);
-    console.log(ProfileCount);
-    return ProfileCount;
+    console.log(myAddress);
+    const UserNum = await s0xDat.userCountByAdr(myAddress).then(result => {return result});
+    console.log(UserNum._hex);
+    const User = await s0xDat.users(UserNum._hex).then(result => {return result});
+    const Profile = await s0xDat.profiles(UserNum._hex).then(result => {return result});
+    
+    console.log(User,Profile);
 };
 
 
@@ -103,5 +107,4 @@ const log = async () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     initialize();
-    log();
 });

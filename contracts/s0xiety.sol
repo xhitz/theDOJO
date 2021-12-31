@@ -105,9 +105,11 @@ contract s0xiety {
     uint256 internal u;
     User[] public users;
     Profile[] public profiles;
-    mapping(address => uint256) internal userNum;
+    mapping(address => uint256) public userNum;
     mapping(address => uint256) public userCountByAdr;
-
+    function uNum(address _adr) public view returns(uint256){
+        return userNum[_adr];
+    }
     struct Socio {
         uint256 id;
         address author;
