@@ -19,7 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "@metamask/detect-provider": "^1.2.0",
-    "@openzeppelin/contracts": "^4.4.1",
+    "@openzeppelin/contracts": "^4.4.2",
     "@openzeppelin/test-helpers": "^0.5.15",
     "@truffle/hdwallet-provider": "^2.0.0",
     "ansi-regex": "^6.0.1",
